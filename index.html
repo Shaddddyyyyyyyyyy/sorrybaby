@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I'm Sorry ❤️</title>
+
+<style>
+    .popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.popup-box{
+    background:#FFD1DC;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+.popup-box h2{
+    color:#ff4d6d;
+    margin-bottom:10px;
+}
+
+.popup-box button{
+    margin:10px;
+    padding:10px 20px;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+    background:#ff4d6d;
+    color:white;
+}
+
+.popup-box .skip{
+    background:#999;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background-image: url("1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+.container{
+    text-align:center;
+    background:#FFD1DC;
+    padding:40px;
+    border-radius:25px;
+    max-width:700px;
+    width:90%;
+    box-shadow:0 15px 40px rgba(0,0,0,0.15);
+    animation:fadeIn 1.5s ease;
+}
+
+h1{
+    color:#ff4d6d;
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+p{
+    color:#555;
+    line-height:1.8;
+    font-size:1.1rem;
+    margin-bottom:25px;
+}
+
+button{
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    background:#ff4d6d;
+    color:white;
+    font-size:1rem;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+.hidden{
+    display:none;
+    margin-top:20px;
+    color:#ff879d;
+    font-weight:bold;
+    font-size:1.3rem;
+}
+
+.heart{
+    position:absolute;
+    color:white;
+    animation:float 6s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+</style>
+</head>
+
+<body>
+    <div id="musicPopup" class="popup">
+    <div class="popup-box">
+        <h2>click babyy</h2>
+        <p>I'm so so sorry babyyy 🥺❤️</p>
+        <button onclick="startMusic()">Click babee ❤️</button>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <h1>I'm Sorry Lajuuuu ❤️</h1>
+
+    <p>
+        Babyyyy,<br><br>
+        I know I hurt you, today i feel like im the most baddest person babee i never meant to make you fell that way ikkuuu i love you i didn't mean to hurt you babeeee i'm so so so sorry don dd i truly regret everything you have to go through cause of me babeeee i promise you babeee i will never repeat that mistake aba pheri babyyyyy i will be a changed man aba dekhi babeee i will not give you any chance to complain babeee
+        i know ikkuu you felt disrespected cause of me babeee mero intentin kaile ni testo feel garune thiyena tmilai babeee i will never repeat those mistakes aba dekhi babeeee sorry babyyy yo pali ko lagii babeee i will make sure to make you fell secure feel loved and most importantly feel respected babeee sorry babyyyy you will see your changed man aba babyyyyy 🥺🥺🥺 sorry ikkuuu i hurted youu 🥺🥺🥺
+
+        <br><br>
+        Thank you for loving me, supporting me, and
+        staying by my side. I promise to learn from
+        my mistakes and become a better person for us i cant afford to loose you babyy i will change for our future babeee 🥺🥺🥺
+        <br><br>
+        Please forgive me babyyy i swear i will change babeee ❤️
+    </p>
+
+    <button onclick="showMessage()">Forgive me Babyy?🥺</button>
+
+    <div class="hidden" id="message">
+        Thank you babyy for forgiving me i swear i will change for you ikkuu 🥺💕
+    </div>
+</div>
+
+<script>
+function showMessage(){
+    document.getElementById("message").style.display="block";
+}
+
+function createHeart(){
+    const heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="🥺";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(Math.random()*20+20)+"px";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },6000);
+}
+
+setInterval(createHeart,300);
+</script>
+<script>
+function startMusic(){
+    document.getElementById("bgMusic").play();
+    document.getElementById("musicPopup").style.display = "none";
+}
+
+function skipMusic(){
+    document.getElementById("musicPopup").style.display = "none";
+}
+// play music automatically after 8 seconds
+setTimeout(function () {
+    document.getElementById("bgMusic").play();
+}, 64000);
+</script>
+<audio id="bgMusic" src="sahara.mp3" loop></audio>
+
+<script>
+let started = false;
+
+document.addEventListener("click", () => {
+    if (started) return;
+    started = true;
+
+    const music = document.getElementById("bgMusic");
+
+    // wait 3 seconds after click
+    setTimeout(() => {
+
+        // go to 2:18 (138 sec)
+        music.currentTime = 0;
+
+        music.volume = 0.6;
+
+        music.play().catch(err => {
+            console.log("Playback blocked:", err);
+        });
+
+    }); // delay in milliseconds
+});
+</script>
+
+</body>
+</html>
