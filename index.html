@@ -60,12 +60,10 @@ body{
 
     min-height:100vh;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    overflow-y:auto;   /* FIXED: allows swipe */
     overflow-x:hidden;
+    overflow-y:auto;
+
+    display:block;   /* IMPORTANT FIX */
 }
 
 /* CONTAINER */
@@ -78,7 +76,8 @@ body{
     width:90%;
     box-shadow:0 15px 40px rgba(0,0,0,0.15);
     animation:fadeIn 1.5s ease;
-    margin:40px 0;
+
+    margin:60px auto;  /* IMPORTANT: enables scrolling */
 }
 
 h1{
